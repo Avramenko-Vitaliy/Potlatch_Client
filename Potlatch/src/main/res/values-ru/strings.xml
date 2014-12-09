@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Potlatch</string>
+    <string name="str_user_name">Имя пользователя</string>
+    <string name="str_date">dd.mm.yy</string>
+    <string name="str_title">Название</string>
+    <string name="str_desc">Описание</string>
+    <string name="str_count_like">0</string>
+    <string name="str_you">Это Вы:</string>
+    <string name="str_login">Логин:</string>
+    <string name="str_pass">Пароль:</string>
+    <string name="str_sign_in">Войти</string>
+    <string name="str_exit">Выход</string>
+    <string name="hint_search">Поиск по названию</string>
+    <string name="page_home">Домашняя</string>
+    <string name="page_search">Поиск</string>
+    <string name="page_friends">Друзья</string>
+    <string name="str_done">Готово</string>
+    <string name="str_close">Закрыть</string>
+    <string name="str_new_gift">Новый подарок</string>
+    <string name="toast_not_title">Пропущено название!</string>
+    <string name="toast_file_not_exist">Не установлена картинка для подарка!</string>
+    <string name="pb_message">Загрузка…Подождите…</string>
+    <string name="pb_title">Загрузка подарка</string>
+    <string name="str_sorted">Сортировать по:</string>
+    <string name="send_gift">Отправить подарок</string>
+    <string name="str_send">Отправить</string>
+    <string name="msg_select">Нечего не выбрано!</string>
+    <string name="msg_sent">Подарок отправлен!</string>
+    <string name="menu_gr_auto">Авто обновление</string>
+    <string name="menu_one">1 минута</string>
+    <string name="menu_five">5 минут</string>
+    <string name="menu_sixty">60 минут</string>
+    <string name="menu_always">Постоянно</string>
+    <string name="msg_get_gift">Вы получили подарок!</string>
+    <string name="msg_fail_connected">Ошибка входа, проверте интернет соединение и свой логин и пароль.</string>
+    <string name="str_preference">Введите свое предпочтение</string>
+    <string name="msg_fail_upload">Ошибка загрузки, попробуйте позже!</string>
+
+    <string-array name="sorted_list">
+        <item>По дате добавления</item>
+        <item>По популярности</item>
+    </string-array>
+</resources>

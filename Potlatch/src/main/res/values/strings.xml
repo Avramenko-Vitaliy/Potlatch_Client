@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Potlatch</string>
+    <string name="str_user_name">This is user name</string>
+    <string name="str_date">dd.mm.yy</string>
+    <string name="str_title">Title</string>
+    <string name="str_desc">Description</string>
+    <string name="str_count_like">0</string>
+    <string name="str_you">It is you:</string>
+    <string name="str_login">Login:</string>
+    <string name="str_pass">Password:</string>
+    <string name="str_sign_in">Sign in</string>
+    <string name="str_exit">Exit</string>
+    <string name="hint_search">Filter title</string>
+    <string name="page_home">Home</string>
+    <string name="page_search">Search</string>
+    <string name="page_friends">Friends</string>
+    <string name="str_done">Done</string>
+    <string name="str_close">Close</string>
+    <string name="str_new_gift">New Gift</string>
+    <string name="toast_not_title">Title do not set!</string>
+    <string name="toast_file_not_exist">Image not set for gift!</string>
+    <string name="pb_message">Uploading…Please wait…</string>
+    <string name="pb_title">Upload gift</string>
+    <string name="str_sorted">Sorted by:</string>
+    <string name="send_gift">Send gift</string>
+    <string name="str_send">Send</string>
+    <string name="msg_select">Nothing selected!</string>
+    <string name="msg_sent">Gift sent!</string>
+    <string name="menu_gr_auto">Auto update</string>
+    <string name="menu_one">1 minute</string>
+    <string name="menu_five">5 minute</string>
+    <string name="menu_sixty">60 minute</string>
+    <string name="menu_always">Always</string>
+    <string name="msg_get_gift">You have received a gift!</string>
+    <string name="msg_fail_connected">Login failed, check your Internet connection and credentials.</string>
+    <string name="str_preference">Enter your preference</string>
+    <string name="msg_fail_upload">Upload fail, try later!</string>
+
+    <string-array name="sorted_list">
+        <item>By date uploaded</item>
+        <item>By relevance</item>
+    </string-array>
+</resources>
