@@ -1,3 +1,12 @@
+.classpath
+.project
+*.iml
+*.eml
+Client.userlibraries
+/.idea
+.DS_Store
+
+
 # Built application files
 *.apk
 *.ap_
