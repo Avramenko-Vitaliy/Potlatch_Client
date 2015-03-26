@@ -39,6 +39,8 @@ public class Contract
     public static final int NOTIFY_ID=101;
     private static User user;
 
+    private Contract(){}
+
     public static synchronized User getUser()
     {
         return user;

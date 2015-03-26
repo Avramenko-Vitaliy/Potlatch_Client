@@ -25,7 +25,7 @@ public class SendGiftAdapter extends GiftAdapter
     @Override
     public List<Gift> loaderGifts()
     {
-        return PotlatchSvc.getOrShowLogin(mContext).findByCreator(Contract.getUser().getId());
+        return PotlatchSvc.getPotlatchApi().findByCreator(Contract.getUser().getId());
     }
 
     @Override

@@ -17,7 +17,7 @@ import butterknife.OnClick;
 import com.deadpeace.potlatch.Contract;
 import com.deadpeace.potlatch.PotlatchSvc;
 import com.deadpeace.potlatch.R;
-import com.deadpeace.potlatch.client.PotlatchSvcApi;
+import com.deadpeace.potlatch.adapter.user.User;
 import retrofit.RetrofitError;
 
 /**
@@ -38,7 +38,7 @@ public class LoginActivity extends Activity
     @InjectView(R.id.progressBar)
     protected ProgressBar progress;
 
-    private final Handler handler=new Handler()
+    private final Handler HANDLER=new Handler()
     {
         @Override
         public void handleMessage(Message msg)
@@ -70,7 +70,7 @@ public class LoginActivity extends Activity
     @OnClick(R.id.btn_sign_in)
     public void doSignIn()
     {
-        final PotlatchSvcApi svc=PotlatchSvc.init(((EditText) findViewById(R.id.edit_login)).getText().toString(), ((EditText) findViewById(R.id.edit_pass)).getText().toString());
+//        final PotlatchSvcApi svc=PotlatchSvc.init(((EditText) findViewById(R.id.edit_login)).getText().toString(), ((EditText) findViewById(R.id.edit_pass)).getText().toString());
         btnSignIn.setEnabled(false);
         btnExit.setEnabled(false);
         progress.setVisibility(View.VISIBLE);
@@ -81,13 +81,16 @@ public class LoginActivity extends Activity
             {
                 try
                 {
-                    Contract.setUser(svc.getUser());
-                    handler.sendEmptyMessage(Contract.SUCCESS);
+                    PotlatchSvc.getPotlatchApi().login(((EditText) findViewById(R.id.edit_login)).getText().toString(),((EditText) findViewById(R.id.edit_pass)).getText().toString());
+                    User user=PotlatchSvc.getPotlatchApi().getUser();
+                    Contract.setUser(user);
+                    HANDLER.sendEmptyMessage(Contract.SUCCESS);
                 }
                 catch(RetrofitError e)
                 {
-                    Log.e(Contract.LOG_TAG, "Error logging in via OAuth.", e);
-                    handler.sendEmptyMessage(Contract.ERROR);
+                    Log.e(Contract.LOG_TAG, "Error logging in.", e);
+                    Contract.setUser(null);
+                    HANDLER.sendEmptyMessage(Contract.ERROR);
                 }
             }
         }).start();

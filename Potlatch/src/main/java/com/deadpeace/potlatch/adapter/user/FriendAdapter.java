@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 import com.deadpeace.potlatch.Contract;
 import com.deadpeace.potlatch.PotlatchSvc;
 import com.deadpeace.potlatch.R;
-import com.deadpeace.potlatch.adapter.gift.Gift;
 import com.deadpeace.potlatch.adapter.gift.SendGiftAdapter;
 
 import java.util.concurrent.locks.ReentrantLock;
@@ -73,7 +75,7 @@ public class FriendAdapter extends UserAdapter
                                     lock.lock();
                                     try
                                     {
-                                        PotlatchSvc.getOrShowLogin(mContext).sendRecipients(selectedId,getItemId(position));
+                                        PotlatchSvc.getPotlatchApi().sendRecipients(selectedId,getItemId(position));
                                         HANDLER.sendEmptyMessage(Contract.SEND_GIFT);
                                     }
                                     finally

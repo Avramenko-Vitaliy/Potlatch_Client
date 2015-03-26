@@ -157,7 +157,7 @@ public abstract class GiftAdapter extends BaseAdapter
                         {
                             //TODO inc/dec count like for gift
                             lock.lock();
-                            gift.setLiked(PotlatchSvc.getOrShowLogin(mContext).likeOrUnlike(gift.getId()).getLiked());
+                            gift.setLiked(PotlatchSvc.getPotlatchApi().likeOrUnlike(gift.getId()).getLiked());
                             HANDLER.sendEmptyMessage(Contract.LOAD_DONE);
                         }
                         finally

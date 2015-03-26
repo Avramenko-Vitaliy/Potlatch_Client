@@ -29,8 +29,8 @@ public class HomeAdapter extends GiftAdapter
     @Override
     public List<Gift> loaderGifts()
     {
-        List<Gift> list=PotlatchSvc.getOrShowLogin(mContext).findByCreator(Contract.getUser().getId());
-        list.addAll(PotlatchSvc.getOrShowLogin(mContext).findByGetting(Contract.getUser().getId()));
+        List<Gift> list=PotlatchSvc.getPotlatchApi().findByCreator(Contract.getUser().getId());
+        list.addAll(PotlatchSvc.getPotlatchApi().findByGetting(Contract.getUser().getId()));
         return list;
     }
 
@@ -56,7 +56,7 @@ public class HomeAdapter extends GiftAdapter
                         try
                         {
                             //TODO inc/dec count obscene
-                            gift.setObscene(PotlatchSvc.getOrShowLogin(mContext).obsceneOrDecent(gift.getId()).getObscene());
+                            gift.setObscene(PotlatchSvc.getPotlatchApi().obsceneOrDecent(gift.getId()).getObscene());
                             HANDLER.sendEmptyMessage(Contract.LOAD_DONE);
                         }
                         finally
@@ -85,9 +85,9 @@ public class HomeAdapter extends GiftAdapter
                     public void run()
                     {
                         if(gift.getCreator().equals(Contract.getUser()))
-                            PotlatchSvc.getOrShowLogin(mContext).delGift(gift.getId());
+                            PotlatchSvc.getPotlatchApi().delGift(gift.getId());
                         else
-                            PotlatchSvc.getOrShowLogin(mContext).delRecipients(Contract.getUser().getId(),gift.getId());
+                            PotlatchSvc.getPotlatchApi().delRecipients(Contract.getUser().getId(),gift.getId());
                         gifts.remove(gift);
                         HANDLER.sendEmptyMessage(Contract.DEL_DONE);
                     }

@@ -22,7 +22,7 @@ public class SearchAdapter extends GiftAdapter
     @Override
     public List<Gift> loaderGifts()
     {
-        List<Gift> list=PotlatchSvc.getOrShowLogin(mContext).findByCreatorNot(Contract.getUser().getId());
+        List<Gift> list=PotlatchSvc.getPotlatchApi().findByCreatorNot(Contract.getUser().getId());
         sortedBy(list,Contract.byDate);
         return list;
     }
@@ -41,10 +41,10 @@ public class SearchAdapter extends GiftAdapter
                     List<Gift> list;
                     if(title!=null)
                         //TODO find gifts by title
-                        list=PotlatchSvc.getOrShowLogin(mContext).findByTitle(title);
+                        list=PotlatchSvc.getPotlatchApi().findByTitle(title);
                     else
                         //TODO reset list gifts
-                        list=PotlatchSvc.getOrShowLogin(mContext).findByCreatorNot(Contract.getUser().getId());
+                        list=PotlatchSvc.getPotlatchApi().findByCreatorNot(Contract.getUser().getId());
                     sortedBy(list,comparator);
                     gifts=list;
                     Log.i(Contract.LOG_TAG,"Find by title: "+title);

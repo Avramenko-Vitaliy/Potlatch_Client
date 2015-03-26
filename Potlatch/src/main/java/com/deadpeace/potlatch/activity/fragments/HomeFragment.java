@@ -147,7 +147,7 @@ public class HomeFragment extends Fragment
             {
                 synchronized(Contract.getUser())
                 {
-                    PotlatchSvc.getOrShowLogin(getActivity()).setPreference(Contract.getUser().getId(),str);
+                    PotlatchSvc.getPotlatchApi().setPreference(Contract.getUser().getId(),str);
                 }
             }
         });
