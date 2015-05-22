@@ -7,10 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
+import android.os.*;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -130,8 +127,14 @@ public class HomeFragment extends Fragment
     {
         super.onResume();
         adapter.loadGifts();
-        PendingIntent pendingIntent=getActivity().createPendingResult(Contract.SEND_GIFT,new Intent(),0);
-        getActivity().bindService(new Intent(getActivity(),UpdaterService.class).putExtra(Contract.P_INTENT,pendingIntent).putParcelableArrayListExtra(Contract.LIST_GIFT,(ArrayList<Gift>)adapter.getGifts()),connection,Context.BIND_AUTO_CREATE);
+//        ArrayList<Gift> currList=new ArrayList<Gift>(adapter.getGifts());
+        PendingIntent pendingIntent=getActivity().createPendingResult(Contract.SEND_GIFT, new Intent(), 0);
+
+        Intent intent=new Intent(getActivity(), UpdaterService.class);
+        intent.putExtra(Contract.P_INTENT, pendingIntent);
+        if(adapter.getGifts()!=null)
+            intent.putParcelableArrayListExtra(Contract.LIST_GIFT, new ArrayList<Gift>(adapter.getGifts()));
+        getActivity().bindService(intent, connection, Context.BIND_AUTO_CREATE);
     }
 
     @Override

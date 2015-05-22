@@ -10,6 +10,7 @@ import com.deadpeace.potlatch.Contract;
 import com.deadpeace.potlatch.PotlatchSvc;
 import com.deadpeace.potlatch.support.LoaderImage;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class SendGiftAdapter extends GiftAdapter
     @Override
     public List<Gift> loaderGifts()
     {
-        return PotlatchSvc.getPotlatchApi().findByCreator(Contract.getUser().getId());
+        return Collections.synchronizedList(PotlatchSvc.getPotlatchApi().findByCreator(Contract.getUser().getId()));
     }
 
     @Override

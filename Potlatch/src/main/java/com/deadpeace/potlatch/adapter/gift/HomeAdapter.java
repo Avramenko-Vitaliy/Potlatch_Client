@@ -12,6 +12,7 @@ import com.deadpeace.potlatch.Contract;
 import com.deadpeace.potlatch.PotlatchSvc;
 import com.deadpeace.potlatch.R;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class HomeAdapter extends GiftAdapter
     @Override
     public List<Gift> loaderGifts()
     {
-        List<Gift> list=PotlatchSvc.getPotlatchApi().findByCreator(Contract.getUser().getId());
+        List<Gift> list=Collections.synchronizedList(PotlatchSvc.getPotlatchApi().findByCreator(Contract.getUser().getId()));
         list.addAll(PotlatchSvc.getPotlatchApi().findByGetting(Contract.getUser().getId()));
         return list;
     }
