@@ -6,7 +6,6 @@ import com.deadpeace.potlatch.adapter.gift.Gift;
 import com.deadpeace.potlatch.adapter.user.User;
 
 import java.util.Comparator;
-import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -74,7 +73,7 @@ public class Contract
         @Override
         public int compare(Gift gift1,Gift gift2)
         {
-            switch(new Date(gift1.getDate()).compareTo(new Date(gift2.getDate())))
+            switch(gift1.getDate().compareTo(gift2.getDate()))
             {
                 case 1:
                     return -1;

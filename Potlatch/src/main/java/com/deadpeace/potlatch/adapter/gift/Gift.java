@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import com.deadpeace.potlatch.adapter.user.User;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,7 +26,7 @@ public class Gift implements Comparable<Gift>,Parcelable
     private List<User> obscene;
     private List<User> recipients;
     private User creator;
-    private long date;
+    private Date date;
 
     public Gift()
     {
@@ -36,7 +36,7 @@ public class Gift implements Comparable<Gift>,Parcelable
     private Gift(Parcel parcel)
     {
         id=parcel.readLong();
-        date=parcel.readLong();
+        date=new Date(parcel.readLong());
         obscene=new ArrayList<User>();
         parcel.readList(obscene,User.class.getClassLoader());
         liked=new ArrayList<User>();
@@ -133,12 +133,12 @@ public class Gift implements Comparable<Gift>,Parcelable
         return liked!=null&&liked.contains(user);
     }
 
-    public long getDate()
+    public Date getDate()
     {
         return date;
     }
 
-    public void setDate(long date)
+    public void setDate(Date date)
     {
         this.date=date;
     }
@@ -184,7 +184,7 @@ public class Gift implements Comparable<Gift>,Parcelable
     public void writeToParcel(Parcel dest,int flags)
     {
         dest.writeLong(id);
-        dest.writeLong(date);
+        dest.writeLong(date.getTime());
         dest.writeList(obscene);
         dest.writeList(liked);
         dest.writeList(recipients);
